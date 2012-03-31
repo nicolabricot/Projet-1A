@@ -3,7 +3,7 @@ package inc;
 public class Functions
 {
 	/**
-	 * Permet d'afficher un boolean sous forme plus agréable
+	 * Permet d'afficher un boolean sous forme plus agr√©able
 	 */
 	public int boolToInt(boolean bool) {
 		if(bool)
