@@ -1,5 +1,7 @@
 package ground;
 
+import inc.Functions;
+
 public class Pronostique
 {
 	private boolean locale;
@@ -8,8 +10,13 @@ public class Pronostique
 	
 	public Pronostique() {
 		this.locale = false;
-		this.visitor = false;
 		this.matchNul = false;
+		this.visitor = false;
+	}
+	public Pronostique(boolean locale, boolean matchNul, boolean visitor) {
+		this.locale = locale;
+		this.matchNul = matchNul;
+		this.visitor = visitor;
 	}
 	
 	public boolean[] getPronostique() {
@@ -23,5 +30,10 @@ public class Pronostique
 		this.locale = locale;
 		this.matchNul = matchNul;
 		this.visitor = visitor;
+	}
+	
+	public String toString() {
+		Functions f = new Functions();
+		return "[" + f.boolToString(this.locale) + ", " + f.boolToString(this.matchNul) + ", " + f.boolToString(this.visitor) + "]";
 	}
 }

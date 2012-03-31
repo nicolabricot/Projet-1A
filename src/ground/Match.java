@@ -12,15 +12,18 @@ public class Match
 		this.pronostique = new Pronostique();
 	}
 	
+	/*
 	public Equipe[] getMatch() {
 		Equipe[] resultat = new Equipe[2];
 		resultat[0] = this.locale;
 		resultat[1] = this.visitor;
 		return resultat;
 	}
-	public void setMatch() {
-		
+	public void setMatch(String nameLocal, String nameVisitor) {
+		this.locale.setName(nameLocal);
+		this.visitor.setName(nameVisitor);		
 	}
+	*/
 	
 	public Pronostique getPronostique() {
 		return this.pronostique;
@@ -30,6 +33,6 @@ public class Match
 	}
 	
 	public String toString() {
-		return this.locale + "Ñ" + this.visitor + " ()";
+		return this.locale + " <> " + this.visitor + "\t" + this.pronostique;
 	}
 }
