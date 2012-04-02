@@ -2,16 +2,17 @@ package ground;
 
 public class Grille
 {
-	private Match[] matchs = new Match[4];
+	private int nbMatchs = 5;
+	private Match[] matchs = new Match[this.nbMatchs];
 	private String[] equipes = { "Reims", "Mulhouse", "Auxerre", "Dijon",
-			"Paris", "Marseille", "Rouen", "Bordeaux" };
+			"Paris", "Marseille", "Rouen", "Bordeaux", "Brest", "Grenoble" };
 
 	/**
 	 * On instancie une nouvelle grille avec les matchs (non aléatoires pour
 	 * l'instant)
 	 */
 	public Grille() {
-		for (int i=0; i < 4; i++)
+		for (int i=0; i < this.nbMatchs; i++)
 			this.matchs[i] = new Match(this.equipes[2 * i],this.equipes[2 * i + 1]);
 	}
 
@@ -38,7 +39,7 @@ public class Grille
 	@Override
 	public String toString() {
 		String resultat = "N°\tLocale <> Visiteur\t[Gagne, Nul, Perd]\n";
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < this.nbMatchs; i++)
 			resultat += (i + 1) + ".\t" + this.matchs[i] + "\n";
 		return resultat;
 	}
