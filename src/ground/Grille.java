@@ -16,9 +16,13 @@ public class Grille
 			this.matchs[i] = new Match(this.equipes[2 * i],this.equipes[2 * i + 1]);
 	}
 
-	/*
-	 * public Match[] getGrille() { return this.matchs; }
+	/**
+	 * Retourne un match donné selon son numéro
+	 * @return
 	 */
+	public Match getMatch(int i) {
+		return matchs[i];
+	}
 
 	/**
 	 * Permet d'ajouter les pronostiques.
@@ -31,16 +35,37 @@ public class Grille
 				pronostique.getPronostique()[1],
 				pronostique.getPronostique()[2]);
 	}
-
+	
+	/**
+	 * Permet de récupérer lenombre de maths par grille
+	 */
+	public int getNbMatchs() {
+		return nbMatchs;
+	}
+	
 	/**
 	 * Permet d'afficher proprement une grille numérotée des matchs et des
 	 * pronostiques
 	 */
 	@Override
 	public String toString() {
-		String resultat = "N°\tLocale <> Visiteur\t[Gagne, Nul, Perd]\n";
-		for (int i = 0; i < this.nbMatchs; i++)
-			resultat += (i + 1) + ".\t" + this.matchs[i] + "\n";
+		String resultat = "\nN°\tLocale <> Visiteur\t[Gagne, Nul, Perd]\n";
+		for (int i = 1; i <= this.nbMatchs; i++) {
+			resultat += i + ".\t" + this.matchs[i-1];
+			if (i != this.nbMatchs) resultat += "\n";
+		}
 		return resultat;
+	}
+	
+	/**
+	 * Affiche une grille (alias de toString)
+	 */
+	public void affiche() {
+		String resultat = "\nN°\tLocale <> Visiteur\t[Gagne, Nul, Perd]\n";
+		for (int i = 1; i <= this.nbMatchs; i++) {
+			resultat += i + ".\t" + this.matchs[i-1];
+			if (i != this.nbMatchs) resultat += "\n";
+		}
+		System.out.println(resultat);
 	}
 }
