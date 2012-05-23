@@ -18,7 +18,7 @@ public class Grille
 
 	/**
 	 * Retourne un match donné selon son numéro
-	 * @return
+	 * @return Match
 	 */
 	public Match getMatch(int i) {
 		return matchs[i];
