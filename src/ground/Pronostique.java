@@ -70,6 +70,27 @@ public class Pronostique
 		this.visitor = f.intToBool(visitor);
 	}
 	
+	/**
+	 * Retourne le nombre de prono ˆ true (donc s'il s'agit d'un simple, double ou triple)
+	 * @return
+	 */
+	public int getNumberOfProno() {
+		int retour = 0;
+		if(locale) retour++;
+		if(matchNul) retour++;
+		if(visitor) retour++;
+		return retour;
+	}
+	
+	/**
+	 * Permet de comparer deux pronostiques
+	 */
+	public boolean isEqual(Pronostique p) {
+		if(p.getPronostique()[0] == locale && p.getPronostique()[1] == matchNul && p.getPronostique()[2] == visitor)
+			return true;
+		return false;
+	}
+	
 	@Override
 	public String toString() {
 		return "[" + f.boolToString(this.locale) + ", "

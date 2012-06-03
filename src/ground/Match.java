@@ -39,9 +39,22 @@ public class Match
 	public void setPronostique(boolean locale, boolean matchNul, boolean visitor) {
 		this.pronostique.setPronostique(locale, matchNul, visitor);
 	}
+	
+	public String[] getNameEquipe() {
+		String retour[] = new String[2];
+		retour[0] = locale.getName();
+		retour[1] = visitor.getName();
+		return retour;
+	}
 
 	@Override
 	public String toString() {
+		return this.locale + " <> " + this.visitor + "\t" + this.pronostique;
+	}
+	/**
+	 * Affiche du match (alias de toString()
+	 */
+	public String affiche() {
 		return this.locale + " <> " + this.visitor + "\t" + this.pronostique;
 	}
 }

@@ -1,11 +1,13 @@
 package ground;
 
-public class Grille
+public class Grille implements Cloneable
 {
-	private int nbMatchs = 5;
+	private final int nbMatchs = 7;
 	private Match[] matchs = new Match[this.nbMatchs];
-	private String[] equipes = { "Reims", "Mulhouse", "Auxerre", "Dijon",
-			"Paris", "Marseille", "Rouen", "Bordeaux", "Brest", "Grenoble" };
+	private String[] equipes = { "Montpellier", "FC Mulhouse", "Paris Saint Germain", "Arsenal", 
+			"Olympique Marseille", "Sochaux", "Olympique Lyon", "FC Toulouse",  "Manchester United",
+			"FC Chelsea", "FC Barcelone", "Inter Milan", "AS Rome", "Juventus de Turin", "Real Madrid",
+			 "Bayer Munich", "Dortmund", "AC Milan" };
 
 	/**
 	 * On instancie une nouvelle grille avec les matchs (non aléatoires pour
@@ -42,6 +44,129 @@ public class Grille
 	public int getNbMatchs() {
 		return nbMatchs;
 	}
+	
+	/**
+	 * Retourne le nombre de Zero dans la grille (match sans pronostique)
+	 * @return
+	 */
+	public int getNbZero() {
+		int retour = 0;
+		for (int i = 0; i < nbMatchs; i++)
+			if (matchs[i].getPronostique().getNumberOfProno() == 0)
+				retour++;
+		return retour;
+	}
+	/**
+	 * Retourne le nombre de Simple dans la grille
+	 * @return
+	 */
+	public int getNbSimple() {
+		int retour = 0;
+		for (int i = 0; i < nbMatchs; i++)
+			if (matchs[i].getPronostique().getNumberOfProno() == 1)
+				retour++;
+		return retour;
+	}
+	/**
+	 * Retourne le nombre de Double dans la grille
+	 * @return
+	 */
+	public int getNbDouble() {
+		int retour = 0;
+		for (int i = 0; i < nbMatchs; i++)
+			if (matchs[i].getPronostique().getNumberOfProno() == 2)
+				retour++;
+		return retour;
+	}
+	/**
+	 * Retourne le nombre de Triple dans la grille
+	 * @return
+	 */
+	public int getNbTriple() {
+		int retour = 0;
+		for (int i = 0; i < nbMatchs; i++)
+			if (matchs[i].getPronostique().getNumberOfProno() == 3)
+				retour++;
+		return retour;
+	}
+	
+	/**
+	 * Retourne le numéro des matchs n'ayant pas de pronostique
+	 * @return
+	 */
+	public int[] getZero() {
+		if (getNbZero() == 0)
+			return null;
+		else {
+			int[] match = new int[getNbZero()];
+			int i = 0;
+			for (int j = 0; j < nbMatchs; j++) {
+				if (matchs[j].getPronostique().getNumberOfProno() == 0) {
+					match[i] = j;
+					i++;
+				}
+			}
+			return match;
+		}
+	}
+	/**
+	 * Retourne le numéro des matchs Simples
+	 * @return
+	 */
+	public int[] getSimple() {
+		if (getNbSimple() == 0)
+			return null;
+		else {
+			int[] match = new int[getNbSimple()];
+			int i = 0;
+			for (int j = 0; j < nbMatchs; j++) {
+				if (matchs[j].getPronostique().getNumberOfProno() == 1) {
+					match[i] = j;
+					i++;
+				}
+			}
+			return match;
+		}
+	}
+	/**
+	 * Retourne le numéro des matchs Doubles
+	 * @return
+	 */
+	public int[] getDouble() {
+		if (getNbDouble() == 0)
+			return null;
+		else {
+			int[] match = new int[getNbDouble()];
+			int i = 0;
+			for (int j = 0; j < nbMatchs; j++) {
+				if (matchs[j].getPronostique().getNumberOfProno() == 2) {
+					match[i] = j;
+					i++;
+				}
+			}
+			return match;
+		}
+	}
+	/**
+	 * Retourne le numéro des matchs Triples
+	 * @return
+	 */
+	public int[] getTriple() {
+		if (getNbTriple() == 0)
+			return null;
+		else {
+			int[] match = new int[getNbTriple()];
+			int i = 0;
+			for (int j = 0; j < nbMatchs; j++) {
+				if (matchs[j].getPronostique().getNumberOfProno() == 3) {
+					match[i] = j;
+					i++;
+				}
+			}
+			return match;
+		}
+	}
+	
 	
 	/**
 	 * Permet d'afficher proprement une grille numérotée des matchs et des
