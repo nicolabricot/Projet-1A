@@ -84,7 +84,8 @@ public class Fenetre extends JFrame
 		legend.add(legendeProno, BorderLayout.CENTER);
 		container.add(legend, BorderLayout.NORTH);
 		
-		Dimension dim = new Dimension(25, 22);
+		/* Dimension des boutons pour modifier les prono */
+		Dimension dim = new Dimension(22, 22);
 		
 		for (int i=0; i<g.getNbMatchs(); i++) {
 			loc[i] = new JButton("1");
