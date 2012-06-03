@@ -17,9 +17,7 @@ import javax.swing.JPanel;
 
 public class Fenetre extends JFrame
 {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	protected Grille g = new Grille();
@@ -44,6 +42,9 @@ public class Fenetre extends JFrame
 	
 	protected Functions f = new Functions();
 	
+	/**
+	 * On instancie une nouvelle fenêtre pour "remplir" la grille
+	 */
 	public Fenetre() {
 
 		this.setTitle("EnsiStats");
@@ -61,6 +62,9 @@ public class Fenetre extends JFrame
 		
 	}
 	
+	/**
+	 * On initialise tous les boutons et autres joyeusetés de JFrame...
+	 */
 	private void initComposant() {
 		
 		container.setLayout(new BorderLayout());
@@ -80,7 +84,7 @@ public class Fenetre extends JFrame
 		legend.add(legendeProno, BorderLayout.CENTER);
 		container.add(legend, BorderLayout.NORTH);
 		
-		Dimension dim = new Dimension(22, 22);
+		Dimension dim = new Dimension(25, 22);
 		
 		for (int i=0; i<g.getNbMatchs(); i++) {
 			loc[i] = new JButton("1");
@@ -127,19 +131,39 @@ public class Fenetre extends JFrame
 		container.add(buttons, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Permet d'afficher le nom des matchs autrement que par défault
+	 * @param i
+	 * @return
+	 */
 	public String displayMatch(int i) {
 		return "\t\t" +  f.intToString(i+1) + ".\t\t" + g.getMatch(i).getNameEquipe()[0] + "  vs.  " + g.getMatch(i).getNameEquipe()[1];
 	}
+	/**
+	 * Affichage des pronostiques séparement du nom des matchs
+	 * @param i
+	 * @return
+	 */
 	public String displayProno(int i) {
 		return g.getMatch(i).getPronostique().toString();
 	}
 	
+	/**
+	 * Bouton de traitement de la grille
+	 * @author Nicolas
+	 *
+	 */
 	class TraiteGrille implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			new FenetreResultats(g);
 		}
 	}
 	
+	/**
+	 * Bouton reset des pronostiques
+	 * @author Nicolas
+	 *
+	 */
 	class Reset implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			for (int i=0; i<g.getNbMatchs(); i++) {
@@ -149,16 +173,29 @@ public class Fenetre extends JFrame
 		}
 	}
 	
+	/**
+	 * Boutons de modifications des pronostiques
+	 * @author Nicolas
+	 *
+	 */
 	class SetProno implements ActionListener {
 		
 		private int prono;
 		private int match;
 		
+		/**
+		 * Instanciation avec le numéro du match et pronostique default
+		 * @param match
+		 * @param prono
+		 */
 		public SetProno(int match, int prono) {
 			this.prono = prono;
 			this.match = match;
 		}
 		
+		/**
+		 * Modification du pronostique "à l'unité"
+		 */
 		public void actionPerformed(ActionEvent arg0) {
 			if (prono == 1) {
 				g.setPronostique(match+1, new Pronostique(

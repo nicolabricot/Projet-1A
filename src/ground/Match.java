@@ -40,6 +40,10 @@ public class Match
 		this.pronostique.setPronostique(locale, matchNul, visitor);
 	}
 	
+	/**
+	 * RŽcupere sous forme de tableau le nom des deux Žquipes
+	 * @return
+	 */
 	public String[] getNameEquipe() {
 		String retour[] = new String[2];
 		retour[0] = locale.getName();

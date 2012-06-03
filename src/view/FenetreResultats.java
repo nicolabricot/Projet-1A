@@ -18,17 +18,19 @@ import process.TraitementSimple;
 
 public class FenetreResultats extends JFrame
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+
 	private JPanel bigContainer = new JPanel();
 	private JPanel container = new JPanel();
+
 	private boolean weiter;
 	private int nbR;
-	
 	private Functions f = new Functions();
 	
+	/**
+	 * Instanciation de la fenêtre des grilles optimisées
+	 * @param g
+	 */
 	public FenetreResultats(Grille g) {
 		
 		this.setTitle("Résultats - EnsiStats");
@@ -49,6 +51,10 @@ public class FenetreResultats extends JFrame
 		
 	}
 	
+	/**
+	 * Initialisation des textes et réponses... Merci JFrame.
+	 * @param g
+	 */
 	private void initComposant(Grille g) {
 		Traitement t = new TraitementSimple();
 		Grille[] r = t.traite(g);
@@ -59,7 +65,8 @@ public class FenetreResultats extends JFrame
 			this.nbR = nbR;
 			
 			container.setLayout(new GridLayout(1, nbR));
-				
+			
+			/* On traite chaque grille reçue */
 			for (int k=0; k<nbR; k++) {
 				JLabel ecran[] = new JLabel[r[k].getNbMatchs()];
 				JLabel ecran_prono[] = new JLabel[r[k].getNbMatchs()];
@@ -77,6 +84,7 @@ public class FenetreResultats extends JFrame
 				legend.add(legendeMatch, BorderLayout.CENTER);
 				lignes.add(legend);
 				
+				/* On s'occupe de chaque "match" et de son pronostique */
 				for (int i=0; i<g.getNbMatchs(); i++) {			
 					ecran[i] = new JLabel();
 					//ecran[i].setBorder(BorderFactory.createLineBorder(Color.green));
@@ -95,8 +103,6 @@ public class FenetreResultats extends JFrame
 				}
 				container.add(lignes);
 			}
-			
-			
 		}
 		else {
 			weiter = false;
@@ -104,9 +110,21 @@ public class FenetreResultats extends JFrame
 		}
 	}
 	
+	/**
+	 * Permet d'afficher le num des matchs
+	 * @param g
+	 * @param i
+	 * @return
+	 */
 	public String displayMatch(Grille g, int i) {
 		return "\t\t" +  f.intToString(i+1) + ".\t\t";
 	}
+	/**
+	 * Affichage des pronostiques séparement du numéro des matchs
+	 * @param g
+	 * @param i
+	 * @return
+	 */
 	public String displayProno(Grille g, int i) {
 		return g.getMatch(i).getPronostique().toString();
 	}

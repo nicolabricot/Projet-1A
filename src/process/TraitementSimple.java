@@ -11,7 +11,9 @@ public class TraitementSimple extends Traitement
 	private Grille g4;
 	private Grille g5;
 	
-
+	/**
+	 * On instancie les nouvelles grilles
+	 */
 	public TraitementSimple() {
 		g1 = new Grille();
 		g2 = new Grille();
@@ -21,6 +23,9 @@ public class TraitementSimple extends Traitement
 	}
 	
 	@Override
+	/**
+	 * Traitement de la grille pour en générer des plus optimales
+	 */
 	public Grille[] traite(Grille g) {
 		Grille[] r = new Grille[9];
 		
@@ -501,77 +506,3 @@ public class TraitementSimple extends Traitement
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

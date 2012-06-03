@@ -10,15 +10,8 @@ public class Console
 {
 	private boolean works;
 	private Scanner scan;
-	/* **
-	 * A REMETTRE A PRIVATE !!
-	 */
-	public Grille grille;
-	/* **
-	 * 
-	 */
+	private Grille grille;
 	private Traitement traitement;
-	/*int i = 0;*/
 	
 	public Console() {
 		works = true;
@@ -140,7 +133,6 @@ public class Console
 			prompt();
 			decode(fetch());
 		}
-		System.out.println("");
 		System.out.println("------------------------");
 		System.out.println("    (c) 2012  Ensisa   ");
 		

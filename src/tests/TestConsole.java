@@ -1,6 +1,6 @@
 package tests;
 
-import ground.Pronostique;
+//import ground.Pronostique;
 import view.Console;
 
 public class TestConsole
@@ -14,6 +14,7 @@ public class TestConsole
 		
 		Console c = new Console();
 		
+		/*
 		c.grille.setPronostique(1, new Pronostique(1, 1, 1));
 		c.grille.setPronostique(2, new Pronostique(1, 1, 1));
 		c.grille.setPronostique(3, new Pronostique(1, 1, 1));
@@ -21,6 +22,7 @@ public class TestConsole
 		c.grille.setPronostique(5, new Pronostique(1, 0, 0));
 		c.grille.setPronostique(6, new Pronostique(1, 0, 0));
 		c.grille.setPronostique(7, new Pronostique(1, 0, 0));
+		//*/
 		
 		c.play();
 
