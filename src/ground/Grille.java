@@ -8,6 +8,7 @@ public class Grille implements Cloneable
 			"Olympique Marseille", "Sochaux", "Olympique Lyon", "FC Toulouse",  "Manchester United",
 			"FC Chelsea", "FC Barcelone", "Inter Milan", "AS Rome", "Juventus de Turin", "Real Madrid",
 			 "Bayer Munich", "Dortmund", "AC Milan" };
+	private final double prixGrille = 1.0;
 
 	/**
 	 * On instancie une nouvelle grille avec les matchs (non aléatoires pour
@@ -167,6 +168,13 @@ public class Grille implements Cloneable
 		}
 	}
 	
+	/**
+	 * Permet de connaitre le prix d'une grille
+	 * @return
+	 */
+	public double getPrixGrille() {
+		return prixGrille;
+	}
 	
 	/**
 	 * Permet d'afficher proprement une grille numérotée des matchs et des

@@ -45,7 +45,7 @@ public class FenetreResultats extends JFrame
 			bigContainer.setLayout(new BorderLayout());
 			bigContainer.add(container, BorderLayout.CENTER);
 			
-			this.setContentPane(bigContainer);
+			this.setContentPane(bigContainer);			
 			this.setVisible(true);
 		}
 		
@@ -56,12 +56,12 @@ public class FenetreResultats extends JFrame
 	 * @param g
 	 */
 	private void initComposant(Grille g) {
-		Traitement t = new TraitementSimple();
+		TraitementSimple t = new TraitementSimple();
 		Grille[] r = t.traite(g);
 		if (r[0] != null) {
 			weiter = true;
 			int nbR = 0;
-			for (int i=0; i<9; i++) if (r[i] != null) nbR++;
+			for (int i=0; i<t.getNombreCase(); i++) if (r[i] != null) nbR++;
 			this.nbR = nbR;
 			
 			container.setLayout(new GridLayout(1, nbR));
@@ -103,6 +103,7 @@ public class FenetreResultats extends JFrame
 				}
 				container.add(lignes);
 			}
+			JOptionPane.showMessageDialog(null, "Vous auriez du miser pour "+t.prixDepart(g)+" euros.\nVous ne miserez plus que "+nbR+" Û.\n Soit une Žconomie de "+(t.prixDepart(g)-nbR)+" Û :-)", "Gain en garantie N-1 - EnsiStats", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else {
 			weiter = false;
