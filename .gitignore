@@ -4,3 +4,4 @@ bin/*
 src/tests/Test.java
 .projet
 .classpath
+*.png
