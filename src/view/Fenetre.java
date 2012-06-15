@@ -90,8 +90,6 @@ public class Fenetre extends JFrame
 		for (int i=0; i<g.getNbMatchs(); i++) {
 			loc[i] = new JButton("1");
 			loc[i].setPreferredSize(dim);
-			loc[i].setName("1");
-			loc[i].setText("1");
 			loc[i].addActionListener(new SetProno(i, 1));
 			mn[i] = new JButton("N");
 			mn[i].setPreferredSize(dim);
