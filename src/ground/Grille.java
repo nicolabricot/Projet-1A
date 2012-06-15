@@ -4,11 +4,41 @@ public class Grille implements Cloneable
 {
 	private final int nbMatchs = 7;
 	private Match[] matchs = new Match[this.nbMatchs];
+	/*
 	private String[] equipes = { "Montpellier", "FC Mulhouse", "Paris Saint Germain", "Arsenal", 
 			"Olympique Marseille", "Sochaux", "Olympique Lyon", "FC Toulouse",  "Manchester United",
 			"FC Chelsea", "FC Barcelone", "Inter Milan", "AS Rome", "Juventus de Turin", "Real Madrid",
 			 "Bayer Munich", "Dortmund", "AC Milan" };
-	private final double prixGrille = 1.0;
+	/*/
+	/**
+	 * Grille n°90 (semaine du 11.06.2012 -> 17.06.2012)
+	 */
+	/*
+	private String[] equipes = {
+		"Pologne", "Russie",
+		"Danemark", "Portugal",
+		"Pays-Bas", "Allemagne",
+		"Italie", "Croatie",
+		"Espagne", "Rép. Irlande",
+		"Ukraine", "France",
+		"Suède", "Angleterre"
+	};
+	/*/
+	/**
+	 * Grille n°91 (semaine du 18.06.2012 -> 25.06.2012)
+	 */
+	//*
+	private String[] equipes = {
+			"Grèce", "Russie",
+			"Portugal", "Pays-Bas",
+			"Danemark", "Allemagne",
+			"Croatie", "Espagne",
+			"Italie", "Rép. Irlande",
+			"Angleterre", "Ukraine",
+			"Suède", "France"
+	};
+	//*/
+	private final double prixGrille = 2.0;
 
 	/**
 	 * On instancie une nouvelle grille avec les matchs (non aléatoires pour
